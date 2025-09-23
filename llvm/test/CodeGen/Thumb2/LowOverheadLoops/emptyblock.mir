@@ -433,16 +433,16 @@ body:             |
     successors: %bb.3(0x40000000), %bb.7(0x40000000)
     liveins: $q0, $r2, $r3, $r4, $r5, $r11
 
-    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     renamable $r0, dead $cpsr = tSUBi3 renamable $r3, 4, 14 /* CC::al */, $noreg
     tSTRspi killed renamable $r3, $sp, 1, 14 /* CC::al */, $noreg :: (store (s32) into %stack.8)
-    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     tSTRspi renamable $r0, $sp, 8, 14 /* CC::al */, $noreg :: (store (s32) into %stack.1)
-    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr
+    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr_rm
     renamable $s2 = VLDRS renamable $r11, 0, 14 /* CC::al */, $noreg :: (load (s32) from %ir.2)
     tCMPi8 killed renamable $r0, 2, 14 /* CC::al */, $noreg, implicit-def $cpsr
     renamable $r0 = t2MOVi 1, 14 /* CC::al */, $noreg, $noreg
-    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VMULS killed renamable $s2, killed renamable $s0, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VMULS killed renamable $s2, killed renamable $s0, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     VSTRS killed renamable $s0, renamable $r2, 0, 14 /* CC::al */, $noreg :: (store (s32) into %ir.pOut)
     t2Bcc %bb.7, 3 /* CC::lo */, killed $cpsr
 
@@ -528,21 +528,21 @@ body:             |
     successors: %bb.4(0x7c000000), %bb.7(0x04000000)
     liveins: $q0, $q1, $q2, $q3, $r0, $r1, $r2, $r6, $r8, $r9, $r10, $r12
 
-    renamable $s16 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s12, renamable $s13, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s18 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s8, renamable $s9, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s16 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s16, renamable $s14, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s18 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s18, renamable $s10, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s12 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s16, killed renamable $s15, 14 /* CC::al */, $noreg, implicit $q3, implicit $fpscr
-    renamable $s8 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s18, killed renamable $s11, 14 /* CC::al */, $noreg, implicit $q2, implicit $fpscr
-    renamable $s10 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s4, renamable $s5, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s14 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s16 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s12, renamable $s13, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s18 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s8, renamable $s9, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s16 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s16, renamable $s14, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s18 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s18, renamable $s10, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s12 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s16, killed renamable $s15, 14 /* CC::al */, $noreg, implicit $q3, implicit $fpscr_rm
+    renamable $s8 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s18, killed renamable $s11, 14 /* CC::al */, $noreg, implicit $q2, implicit $fpscr_rm
+    renamable $s10 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s4, renamable $s5, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s14 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     renamable $r7 = tLDRspi $sp, 9, 14 /* CC::al */, $noreg :: (load (s32) from %stack.0)
-    renamable $s10 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s10, renamable $s6, 14 /* CC::al */, $noreg, implicit $fpscr
-    renamable $s14 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s14, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s10 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s10, renamable $s6, 14 /* CC::al */, $noreg, implicit $fpscr_rm
+    renamable $s14 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s14, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     renamable $r3 = t2ADDrs renamable $r2, renamable $r0, 18, 14 /* CC::al */, $noreg, $noreg
     renamable $r7 = t2ADDrs renamable $r2, killed renamable $r7, 18, 14 /* CC::al */, $noreg, $noreg
-    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s10, killed renamable $s7, 14 /* CC::al */, $noreg, implicit $q1, implicit $fpscr
-    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s14, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr
+    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s10, killed renamable $s7, 14 /* CC::al */, $noreg, implicit $q1, implicit $fpscr_rm
+    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s14, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr_rm
     VSTRS killed renamable $s12, killed renamable $r3, 0, 14 /* CC::al */, $noreg :: (store (s32) into %ir.arrayidx37)
     VSTRS killed renamable $s8, killed renamable $r7, 0, 14 /* CC::al */, $noreg :: (store (s32) into %ir.arrayidx42)
     renamable $r3 = t2ADDrs renamable $r2, killed renamable $r8, 18, 14 /* CC::al */, $noreg, $noreg
@@ -616,11 +616,11 @@ body:             |
     successors: %bb.12(0x04000000), %bb.9(0x7c000000)
     liveins: $q0, $r0, $r2, $r3, $r4, $r5, $r11, $r12
 
-    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS renamable $s0, renamable $s1, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     renamable $r1 = t2ADDrs renamable $r2, renamable $r0, 18, 14 /* CC::al */, $noreg, $noreg
-    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr
+    renamable $s4 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, renamable $s2, 14 /* CC::al */, $noreg, implicit $fpscr_rm
     renamable $r0, dead $cpsr = nuw tADDi8 killed renamable $r0, 1, 14 /* CC::al */, $noreg
-    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr
+    renamable $s0 = nnan ninf nsz arcp contract afn reassoc VADDS killed renamable $s4, killed renamable $s3, 14 /* CC::al */, $noreg, implicit $q0, implicit $fpscr_rm
     tCMPhir renamable $r0, renamable $r12, 14 /* CC::al */, $noreg, implicit-def $cpsr
     VSTRS killed renamable $s0, killed renamable $r1, 0, 14 /* CC::al */, $noreg :: (store (s32) into %ir.arrayidx70)
     tBcc %bb.9, 1 /* CC::ne */, killed $cpsr
